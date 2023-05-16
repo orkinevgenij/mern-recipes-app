@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Котлеты",
+    "imgUrl": "КАРТИНКА",
+    "cooking": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed",
+    "ingredients": "Огурцы, помидоры, майонез",
+    "likes": "22",
+    "time": "00:15"
+  },
+  {
+    "title": "Котлеты",
+    "imgUrl": "КАРТИНКА",
+    "cooking": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed",
+    "ingredients": "Огурцы, помидоры, майонез",
+    "likes": "15"
+  },
+
+  {
+    "title": "Котлеты",
+    "imgUrl": "КАРТИНКА",
+    "cooking": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi culpa, natus odit sed",
+    "ingredients": "Огурцы, помидоры, майонез",
+    "likes": "6"
+  }
+]
