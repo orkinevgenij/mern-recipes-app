@@ -29,7 +29,6 @@ export const AddRecipe = () => {
   const [category, setCategory] = useState('')
   const [time, setTime] = useState('')
   const [image, setImage] = useState('')
-
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
