@@ -77,22 +77,40 @@ export const Header = () => {
               flexWrap: 'wrap',
             }}
           >
-            <Button component={Link} to='/'>
+            <Button component={Link} to='/' color='success' variant='outlined'>
               Главная
             </Button>
-            <Button component={Link} to='/recipes/addrecipe' startIcon={<Add />}>
+            <Button
+              component={Link}
+              to='/recipes/addrecipe'
+              startIcon={<Add />}
+              color='success'
+              variant='outlined'
+            >
               Добавить рецепт
             </Button>
-            <Button component={Link} to='/recipes/popular' startIcon={<Add />}>
+            <Button
+              component={Link}
+              to='/recipes/popular'
+              startIcon={<Add />}
+              color='success'
+              variant='outlined'
+            >
               Популярные
             </Button>
-            <Button component={Link} to='/recipes/myrecipes' startIcon={<MenuBook />}>
-              Личные рецепты
+            <Button
+              component={Link}
+              to='/recipes/myrecipes'
+              startIcon={<MenuBook />}
+              color='success'
+              variant='outlined'
+            >
+              Мои рецепты
             </Button>
             {isAuth ? (
               <Avatar
                 sx={{
-                  bgcolor: 'primary.light',
+                  bgcolor: 'success.main',
                   cursor: 'pointer',
                 }}
                 id='basic-button'
@@ -104,7 +122,7 @@ export const Header = () => {
                 {user?.email.substr(0, 2)}
               </Avatar>
             ) : (
-              <Button variant='outlined' component={Link} to='/login'>
+              <Button variant='outlined' color='success' component={Link} to='/login'>
                 Войти
               </Button>
             )}

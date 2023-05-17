@@ -26,8 +26,8 @@ export const MyRecipes = () => {
   }
   return (
     <Grid
+      spacing={1}
       container
-      gap={1}
       sx={{
         marginTop: '10px',
       }}

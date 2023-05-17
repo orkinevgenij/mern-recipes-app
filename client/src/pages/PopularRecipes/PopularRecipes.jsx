@@ -13,7 +13,7 @@ export const PopularRecipes = () => {
   return (
     <Grid
       container
-      gap={1}
+      spacing={1}
       sx={{
         marginTop: '10px',
       }}
