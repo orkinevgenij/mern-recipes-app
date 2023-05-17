@@ -1,11 +1,28 @@
 import { AddCircle, RemoveCircle } from '@mui/icons-material'
-import { Box, Button, Grid, IconButton, MenuItem, Paper, Stack, TextField } from '@mui/material'
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  MenuItem,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { ReactEditor } from '../../components/ReactEditor'
 import { createRecipe } from '../../redux/features/recipe/recipeSlice'
-
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+const schema = yup.object().shape({
+  title: yup.string().required('Введите название рецепта'),
+  category: yup.string().required('Выберите категорию'),
+  time: yup.string().required('Введите время'),
+})
 const categories = [
   { value: 1, label: 'Основные блюда' },
   { value: 2, label: 'Блины, оладьи, сырники' },
@@ -29,6 +46,13 @@ export const AddRecipe = () => {
   const [category, setCategory] = useState('')
   const [time, setTime] = useState('')
   const [image, setImage] = useState('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -51,7 +75,7 @@ export const AddRecipe = () => {
     setIngredients(remove)
   }
 
-  const handleSubmit = () => {
+  const onSubmit = () => {
     try {
       const data = new FormData()
       data.append('title', title)
@@ -74,7 +98,7 @@ export const AddRecipe = () => {
   }
 
   return (
-    <Grid component='form' onSubmit={(e) => e.preventDefault()}>
+    <Grid component='form' onSubmit={handleSubmit(onSubmit)}>
       <Paper
         sx={{
           padding: '20px',
@@ -87,6 +111,7 @@ export const AddRecipe = () => {
         <Grid align='center'>
           <TextField
             type='file'
+            name='picture'
             onChange={(e) => setImage(e.target.files[0])}
             sx={{
               marginBottom: 1,
@@ -98,6 +123,9 @@ export const AddRecipe = () => {
             </Box>
           )}
           <TextField
+            {...register('title')}
+            error={Boolean(errors.title?.message)}
+            helperText={errors.title?.message}
             label='Название'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -108,10 +136,12 @@ export const AddRecipe = () => {
             }}
           />
           <TextField
+            {...register('category')}
+            error={Boolean(errors.category?.message)}
+            helperText={errors.category?.message}
             label='Выберите категорию'
             value={category}
             select
-            helperText='Пожалуйста, выберите категорию'
             onChange={selectedChange}
             fullWidth
             sx={{
@@ -124,7 +154,15 @@ export const AddRecipe = () => {
               </MenuItem>
             ))}
           </TextField>
-          <TextField value={time} type='time' onChange={(e) => setTime(e.target.value)} fullWidth />
+          <TextField
+            {...register('time')}
+            error={Boolean(errors.time?.message)}
+            helperText={errors.time?.message}
+            value={time}
+            type='time'
+            onChange={(e) => setTime(e.target.value)}
+            fullWidth
+          />
           <IconButton>
             <AddCircle onClick={handleAdd} color='success' fontSize='large' />
           </IconButton>

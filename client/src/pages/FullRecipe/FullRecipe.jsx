@@ -43,7 +43,7 @@ export const FullRecipe = () => {
 
   const getOneRecipe = useCallback(async () => {
     try {
-      const { data } = await axios.get(`https://app-recipe-book.onrender.com/recipes/${params.id}`)
+      const { data } = await axios.get(`http://localhost:4001/recipes/${params.id}`)
       setRecipe(data)
       setLoading(false)
     } catch (error) {
@@ -98,7 +98,7 @@ export const FullRecipe = () => {
                 <CardMedia
                   component='img'
                   height='200px'
-                  image={`https://app-recipe-book.onrender.com/${recipe?.imgUrl}`}
+                  image={`http://localhost:4001/${recipe?.imgUrl}`}
                   alt={recipe?.title}
                 />
                 <CardContent>

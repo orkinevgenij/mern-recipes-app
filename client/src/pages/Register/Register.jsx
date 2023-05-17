@@ -29,7 +29,6 @@ export const Register = () => {
   const isAuth = useSelector(checkAuth)
   const { status } = useSelector((state) => state.auth)
   const handleRegistration = (values) => {
-    console.log(values)
     try {
       dispatch(registerUser(values))
     } catch (error) {

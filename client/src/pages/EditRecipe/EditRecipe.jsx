@@ -30,7 +30,6 @@ export const EditRecipe = () => {
   const [time, setTime] = useState('')
   const [oldImage, setOldImage] = useState('')
   const [newImage, setNewImage] = useState('')
-  console.log(category)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { id } = useParams()
@@ -54,7 +53,7 @@ export const EditRecipe = () => {
     setIngredients(remove)
   }
   const recipeEdit = async () => {
-    const { data } = await axios.get(`https://app-recipe-book.onrender.com/recipes/${id}`)
+    const { data } = await axios.get(`http://localhost:4001/recipes/${id}`)
     setTitle(data.title)
     setDescription(data.description)
     setIngredients(data.ingredients)
@@ -114,11 +113,7 @@ export const EditRecipe = () => {
 
             {oldImage && (
               <Box>
-                <img
-                  src={`https://app-recipe-book.onrender.com/${oldImage}`}
-                  alt='img'
-                  height={200}
-                />
+                <img src={`http://localhost:4001/${oldImage}`} alt='img' height={200} />
               </Box>
             )}
             {newImage && (

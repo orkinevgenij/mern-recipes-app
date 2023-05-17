@@ -33,7 +33,7 @@ export const RecipeItem = ({ recipe }) => {
           <CardMedia
             component='img'
             height='150px'
-            image={recipe.imgUrl && `https://app-recipe-book.onrender.com/${recipe.imgUrl}`}
+            image={recipe.imgUrl && `http://localhost:4001/${recipe.imgUrl}`}
             alt={recipe.title}
           />
         </Link>

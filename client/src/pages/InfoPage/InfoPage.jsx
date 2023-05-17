@@ -9,8 +9,9 @@ export const InfoPage = () => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        height: '100vh',
         justifyContent: 'center',
+        overflowY: 'hidden',
+        paddingTop: '30px',
       }}
     >
       <CheckIcon fontSize='large' color='success' />

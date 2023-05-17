@@ -9,9 +9,7 @@ export const MyRecipes = () => {
 
   const fetchMyRecipes = async () => {
     try {
-      const { data } = await axios.get(
-        'https://app-recipe-book.onrender.com/recipes/user/myrecipes',
-      )
+      const { data } = await axios.get('http://localhost:4001/recipes/user/myrecipes')
       setRecipes(data)
       setLoading(false)
     } catch (error) {
@@ -27,25 +25,23 @@ export const MyRecipes = () => {
     return <MyRecipesEmpty />
   }
   return (
-    <>
-      <Grid
-        container
-        gap={1}
-        sx={{
-          marginTop: '10px',
-        }}
-      >
-        {loading === true ? (
-          <CircularProgress
-            sx={{
-              margin: '0px auto',
-            }}
-            color='success'
-          />
-        ) : (
-          recipes?.map((recipe, index) => <RecipeItem key={index} recipe={recipe} />)
-        )}
-      </Grid>
-    </>
+    <Grid
+      container
+      gap={1}
+      sx={{
+        marginTop: '10px',
+      }}
+    >
+      {loading === true ? (
+        <CircularProgress
+          sx={{
+            margin: '0px auto',
+          }}
+          color='success'
+        />
+      ) : (
+        recipes?.map((recipe, index) => <RecipeItem key={index} recipe={recipe} />)
+      )}
+    </Grid>
   )
 }

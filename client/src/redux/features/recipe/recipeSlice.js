@@ -10,7 +10,7 @@ const initialState = {
 
 export const createRecipe = createAsyncThunk('recipe/createRecipe', async (params) => {
   try {
-    const { data } = await axios.post('https://app-recipe-book.onrender.com/recipes', params)
+    const { data } = await axios.post('http://localhost:4001/recipes', params)
     return data
   } catch (error) {
     console.log(error)
@@ -18,13 +18,13 @@ export const createRecipe = createAsyncThunk('recipe/createRecipe', async (param
 })
 
 export const getRecipes = createAsyncThunk('recipe/getRecipes', async () => {
-  const { data } = await axios.get('https://app-recipe-book.onrender.com/recipes')
+  const { data } = await axios.get('http://localhost:4001/recipes')
   return data
 })
 
 export const removeRecipe = createAsyncThunk('recipe/removeRecipe', async (id) => {
   try {
-    const { data } = await axios.delete(`https://app-recipe-book.onrender.com/recipes/${id}`, id)
+    const { data } = await axios.delete(`http://localhost:4001/recipes/${id}`, id)
     return data
   } catch (error) {
     console.log(error)
@@ -33,7 +33,7 @@ export const removeRecipe = createAsyncThunk('recipe/removeRecipe', async (id) =
 export const updatedRecipe = createAsyncThunk('recipe/updateRecipe', async (updateRecipe) => {
   try {
     const { data } = await axios.put(
-      `https://app-recipe-book.onrender.com/recipes/${updateRecipe.id}`,
+      `http://localhost:4001/recipes/${updateRecipe.id}`,
       updateRecipe,
     )
     return data

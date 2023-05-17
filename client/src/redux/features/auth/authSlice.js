@@ -9,7 +9,7 @@ const initialState = {
 
 export const registerUser = createAsyncThunk('auth/registerUser', async ({ email, password }) => {
   try {
-    const { data } = await axios.post('https://app-recipe-book.onrender.com/auth/register', {
+    const { data } = await axios.post('http://localhost:4001/auth/register', {
       email,
       password,
     })
@@ -25,7 +25,7 @@ export const registerUser = createAsyncThunk('auth/registerUser', async ({ email
 
 export const loginUser = createAsyncThunk('auth/loginUser', async ({ email, password }) => {
   try {
-    const { data } = await axios.post('https://app-recipe-book.onrender.com/auth/login', {
+    const { data } = await axios.post('http://localhost:4001/auth/login', {
       email,
       password,
     })
@@ -41,7 +41,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async ({ email, pass
 
 export const getMe = createAsyncThunk('auth/getMe', async () => {
   try {
-    const { data } = await axios.get('https://app-recipe-book.onrender.com/auth/me')
+    const { data } = await axios.get('http://localhost:4001/auth/me')
     return data
   } catch (error) {
     console.log(error)

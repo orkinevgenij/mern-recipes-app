@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://app-recipe-book.onrender.com',
+  baseURL: 'http://localhost:4001',
 })
 
 instance.interceptors.request.use((config) => {

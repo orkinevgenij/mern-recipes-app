@@ -42,7 +42,7 @@ export const Main = () => {
       <Typography textAlign='center' variant='h4'>
         ДОМАШНИЕ РЕЦЕПТЫ ПРИГОТОВЛЕНИЯ БЛЮД С ФОТО
       </Typography>
-      <Grid container mt={1} spacing={1} mb={3}>
+      <Grid container mt={1} spacing={1}>
         {isLoading ? (
           <CircularProgress
             sx={{

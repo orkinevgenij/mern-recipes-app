@@ -7,7 +7,7 @@ const initialState = {
 
 export const createComment = createAsyncThunk('comment/createComment', async ({ id, comment }) => {
   try {
-    const { data } = await axios.post(`https://app-recipe-book.onrender.com/comments/${id}`, {
+    const { data } = await axios.post(`http://localhost:4001/comments/${id}`, {
       id,
       comment,
     })
@@ -18,7 +18,7 @@ export const createComment = createAsyncThunk('comment/createComment', async ({ 
 })
 export const getRecipeComments = createAsyncThunk('comments/getPostComments', async (id) => {
   try {
-    const { data } = await axios.get(`https://app-recipe-book.onrender.com/recipes/comments/${id}`)
+    const { data } = await axios.get(`http://localhost:4001/recipes/comments/${id}`)
     return data
   } catch (error) {
     console.log(error)
@@ -27,9 +27,7 @@ export const getRecipeComments = createAsyncThunk('comments/getPostComments', as
 
 export const removeComment = createAsyncThunk('comment/commentRemove', async (commentId) => {
   try {
-    const { data } = await axios.delete(
-      `https://app-recipe-book.onrender.com/comments/${commentId}`,
-    )
+    const { data } = await axios.delete(`http://localhost:4001/comments/${commentId}`)
     return data
   } catch (error) {
     console.log(error)
@@ -38,7 +36,7 @@ export const removeComment = createAsyncThunk('comment/commentRemove', async (co
 
 export const updateComment = createAsyncThunk('comment/updateComment', async ({ comment, id }) => {
   try {
-    const { data } = await axios.patch(`https://app-recipe-book.onrender.com/comments/${id}`, {
+    const { data } = await axios.patch(`http://localhost:4001/comments/${id}`, {
       comment,
     })
     return data

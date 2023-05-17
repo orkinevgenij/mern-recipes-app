@@ -11,7 +11,7 @@ export const EditComment = () => {
   const { id } = useParams()
 
   const getOneComment = async () => {
-    const { data } = await axios.get(`https://app-recipe-book.onrender.com/comments/${id}`)
+    const { data } = await axios.get(`http://localhost:4001/comments/${id}`)
     setComment(data.comment)
   }
 
